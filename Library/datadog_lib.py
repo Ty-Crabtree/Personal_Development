@@ -143,24 +143,16 @@ class Datadog:
         self.color_magenta(info)
         self.write_to_file(header, info)
 
-    def splunk_integration(self):
-        print('Splunk Interactions')
-        headers = {
-            'Authorization': '7da83bdd-7d7c-4603-b814-fc505fec312a' # Example key
-        }
-        ex=requests.get( 'https://splunk.smarshinc.com/en-US/app/splunk_monitoring_console/monitoringconsole_overview', headers=headers )
-        print(ex.status_code)
-
 
     def datadog_api_controller(self):
         self.header()
         print(self.get_total_up_full())
-        self.api_output("downtime_list", self.get_api_downtime_list())
+        #self.api_output("downtime_list", self.get_api_downtime_list())
+        self.api_output('monitor_list_trimmed', self.get_api_monitor_list_trimmed())
 
         '''
         self.api_output('timeboard_list', self.get_api_timeboard())
         self.api_output('dashboard_list', self.get_api_dashboard())
-        self.api_output('monitor_list_trimmed', self.get_api_monitor_list_trimmed())
         self.api_output('monitor_list_full', self.get_api_monitor_list_full())
         self.api_output("downtime_list", self.get_api_downtime_list())
         self.api_output("user_list", self.get_all_users())
