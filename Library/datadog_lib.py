@@ -3,7 +3,6 @@ import sys
 import webbrowser
 import time
 import json
-import requests
 
 #########################################################
 # Performs pip install if default import fails :)
@@ -92,6 +91,9 @@ class Datadog:
     def get_api_monitor_list_full(self):
         return self.api_monitor.get_all()
 
+    def get_api_mon(self):
+        return self.api_monitor.
+
     def get_api_metric_list(self):
         return self.api_metric.list(time.time())
 
@@ -145,12 +147,12 @@ class Datadog:
 
 
     def datadog_api_controller(self):
+        pass
+        '''
         self.header()
         print(self.get_total_up_full())
         #self.api_output("downtime_list", self.get_api_downtime_list())
         self.api_output('monitor_list_trimmed', self.get_api_monitor_list_trimmed())
-
-        '''
         self.api_output('timeboard_list', self.get_api_timeboard())
         self.api_output('dashboard_list', self.get_api_dashboard())
         self.api_output('monitor_list_full', self.get_api_monitor_list_full())
@@ -160,6 +162,7 @@ class Datadog:
         self.api_output("host_list", self.get_host_list())
         self.api_output("infrastructure_list", self.get_all_infrastructure_list())
         '''
+
 
 
 if __name__ == '__main__':
